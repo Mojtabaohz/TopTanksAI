@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameObject bullet;
-    public int bulletSpeed = 1000;
+    public int bulletSpeed = 400;
     public int dmg =  5;
     public bool explosive = false;
     public float explosionPower = 10.0f;
@@ -30,6 +30,10 @@ public class Bullet : MonoBehaviour
         //}
     }
 
+    void FixedUpdate()
+    {
+        transform.Translate(new Vector3(0f, 0f, bulletSpeed * Time.fixedDeltaTime), Space.Self);
+    }
     void OnTriggerEnter(Collider other){
         
         if(collisionEnable & !explosive){

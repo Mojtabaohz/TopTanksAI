@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class ScannedRobotEvent {
     public string Name;
-    public float Distance; 
+    public float Distance;
 }
 
 public class BaseAI
@@ -21,7 +21,7 @@ public class BaseAI
     /// <param name="e">The event data</param>
     public virtual void OnScannedRobot(ScannedRobotEvent e)
     {
-        // 
+        //
     }
 
     /// <summary>
