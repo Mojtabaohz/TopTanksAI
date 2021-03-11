@@ -49,7 +49,7 @@ public class TankController : MonoBehaviour
     /// Should be called only once
     /// </summary>
     public void StartBattle() {
-        Debug.Log("test");
+        Debug.Log("Battle starts");
         StartCoroutine(ai.RunAI());
     }
 
