@@ -8,7 +8,7 @@ using UnityEngine;
 public class BattleManager : MonoBehaviour
 {
     // the prefab for the participants in the battle
-    public GameObject PlayerPrefab = null;
+    public GameObject[] PlayerPrefab = null;
 
     // The positions where the participants will be instantiated
     // set in the inspector by dragging 4 gameobjects in the slots of the array
@@ -32,7 +32,7 @@ public class BattleManager : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            GameObject tank = Instantiate(PlayerPrefab, SpawnPoints[i].position, SpawnPoints[i].rotation);
+            GameObject tank = Instantiate(PlayerPrefab[i], SpawnPoints[i].position, SpawnPoints[i].rotation);
             TankController TankController = tank.GetComponent<TankController>();
             TankController.SetAI(aiArray[i]);
             Tanks.Add(TankController);
