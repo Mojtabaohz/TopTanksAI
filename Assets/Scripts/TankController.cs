@@ -64,7 +64,7 @@ public class TankController : MonoBehaviour
     /// </summary>
     /// <param name="other"></param>
     void OnTriggerStay(Collider other) {
-        if (other.tag == "Boat") {
+        if (other.tag == "tank") {
             ScannedRobotEvent scannedRobotEvent = new ScannedRobotEvent();
             scannedRobotEvent.Distance = Vector3.Distance(transform.position, other.transform.position);
             scannedRobotEvent.Name = other.name;
