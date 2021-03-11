@@ -10,6 +10,7 @@ TagManager:
   - plane
   - BlueWin
   - RedWin
+  - tank
   layers:
   - Default
   - TransparentFX
