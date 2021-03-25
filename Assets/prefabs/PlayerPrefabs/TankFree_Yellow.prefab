@@ -645,7 +645,8 @@ MonoBehaviour:
   Emmitter: {fileID: 2725415142522428344}
   Turret: {fileID: 6448021381764401994}
   states: []
-  navAgent: {fileID: 0}
+  navAgent: {fileID: 7774959142743180575}
+  target: {fileID: 0}
 --- !u!1 &6448021381764401994
 GameObject:
   m_ObjectHideFlags: 0
