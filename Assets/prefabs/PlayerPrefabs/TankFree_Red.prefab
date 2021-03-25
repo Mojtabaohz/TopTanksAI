@@ -16,9 +16,8 @@ GameObject:
   - component: {fileID: 5381922992885619491}
   - component: {fileID: 7019995807706059850}
   - component: {fileID: 8929095744541238974}
-  - component: {fileID: 1914693946751710906}
   m_Layer: 0
-  m_Name: TankFree_Blue 1
+  m_Name: TankFree_Red
   m_TagString: tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,27 +250,9 @@ MonoBehaviour:
     type: 3}
   Emmitter: {fileID: 3093165131920501641}
   Turret: {fileID: 6771207196771764106}
-  sails: []
---- !u!114 &1914693946751710906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2383728250670414135}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f083926ecdb4cb40957f02793fa721c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  navAgent: {fileID: 0}
-  currentTarget: {fileID: 0}
-  viewRange: 0
-  m_DistanceToTarget: 0
-  m_Health: 20
-  m_RetreatHealth: 5
-  fireRange: 15
-  enemiesList: []
+  states: []
+  navAgent: {fileID: 7019995807706059850}
+  target: {fileID: 0}
 --- !u!1 &4647103020481649060
 GameObject:
   m_ObjectHideFlags: 0

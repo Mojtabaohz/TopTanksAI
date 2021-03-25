@@ -9,6 +9,7 @@ using UnityEngine;
 public class ScannedRobotEvent {
     public string Name;
     public float Distance;
+    public Transform Transform;
 }
 
 public class BaseAI
@@ -21,11 +22,11 @@ public class BaseAI
     /// <param name="e">The event data</param>
     public virtual void OnScannedRobot(ScannedRobotEvent e)
     {
-        //
+        //Debug.Log("new tank scanned");
     }
 
     /// <summary>
-    /// Move this ship ahead by the given distance
+    /// Move this Tank ahead by the given distance
     /// </summary>
     /// <param name="distance">The distance to move</param>
     /// <returns></returns>
@@ -33,6 +34,10 @@ public class BaseAI
         yield return Tank.__Ahead(distance);
     }
 
+    public IEnumerator MoveToTarget(Transform target)
+    {
+        yield return Tank.__MoveToTarget(target);
+    }
     /// <summary>
     /// Move the ship backwards by the given distance
     /// </summary>
@@ -47,6 +52,10 @@ public class BaseAI
     /// </summary>
     /// <param name="angle">The angle to rotate</param>
     /// <returns></returns>
+    public IEnumerator TurretLookAt(Transform target)
+    {
+        yield return Tank.__TurretLookAt(target);
+    }
     public IEnumerator TurnTurretLeft(float angle) {
         yield return Tank.__TurnTurretLeft(angle);
     }

@@ -24,8 +24,8 @@ public class BattleManager : MonoBehaviour
     void Start()
     {
         BaseAI[] aiArray = new BaseAI[] {
+            new IljaAI(),
             new MojiAI(), 
-            new IljaAI(), 
             new YanAI(), 
             new DanAI()
         };
