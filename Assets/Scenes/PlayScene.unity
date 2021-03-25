@@ -2711,6 +2711,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 24.761002
       objectReference: {fileID: 0}
+    - target: {fileID: 5794895341248067978, guid: 4373f9d2f97dbba418de64ac258f9fb0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e0b08a959f1b9fc4fa92050cba6666e6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4373f9d2f97dbba418de64ac258f9fb0, type: 3}
 --- !u!1001 &467658803
@@ -4934,6 +4939,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3581160675809761585, guid: 435252206ce9d554b8bacb9eb901059b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d747239450ead1d45aad265763160fe3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 435252206ce9d554b8bacb9eb901059b, type: 3}
 --- !u!1001 &998942103
@@ -8400,6 +8410,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 25506020}
     m_Modifications:
+    - target: {fileID: 7806371353192918105, guid: 4a12422ee85bcac4491334a9c45d1a8b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 26bc8648a85c6b041a5d5b00ca61062b, type: 2}
     - target: {fileID: 7806371353195180697, guid: 4a12422ee85bcac4491334a9c45d1a8b,
         type: 3}
       propertyPath: m_Name
@@ -8870,7 +8885,7 @@ PrefabInstance:
     - target: {fileID: 3213887280595655666, guid: 677aad0f5cb681e4f8a7faceb6216cc4,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 182.79517
+      value: 137.11282
       objectReference: {fileID: 0}
     - target: {fileID: 3213887280595655666, guid: 677aad0f5cb681e4f8a7faceb6216cc4,
         type: 3}
@@ -8880,7 +8895,7 @@ PrefabInstance:
     - target: {fileID: 3213887280595655666, guid: 677aad0f5cb681e4f8a7faceb6216cc4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4754441
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 3213887280595655666, guid: 677aad0f5cb681e4f8a7faceb6216cc4,
         type: 3}
@@ -8922,6 +8937,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3213887280597555474, guid: 677aad0f5cb681e4f8a7faceb6216cc4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44ee0b7af366dab42b54c4528e67fc86, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 677aad0f5cb681e4f8a7faceb6216cc4, type: 3}
 --- !u!1001 &1901394896
@@ -9722,6 +9742,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6958151758463653135, guid: 194784a7e66dd7e4bb376b399e8aa07f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100002, guid: 0bdb8f985e3073c4ba6d630ebf89b715, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 194784a7e66dd7e4bb376b399e8aa07f, type: 3}
 --- !u!1001 &2058963469
@@ -9820,6 +9845,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 25506020}
     m_Modifications:
+    - target: {fileID: 4797593791139709487, guid: 3f52c02c0dd742a4085c2788070d7191,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bdb8f985e3073c4ba6d630ebf89b715, type: 3}
     - target: {fileID: 4797593791141911791, guid: 3f52c02c0dd742a4085c2788070d7191,
         type: 3}
       propertyPath: m_Name
