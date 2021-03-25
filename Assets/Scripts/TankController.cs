@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 /// <summary>
 /// The vehicle that will do battle. This is the same for every participant in the arena.
@@ -16,15 +18,17 @@ public class TankController : MonoBehaviour
     // the 'scanner' that allows the ship to 'see' its surroundings
     public GameObject Turret = null;
 
-    // sails can be used to indicate the state of the ship (attacking, fleeing, searching etc.)
-    public GameObject[] sails = null;
-
+    // states can be used to indicate the state of the ship (attacking, fleeing, searching etc.)
+    public GameObject[] states = null;
+    // navmesh agent to access functions for finding new target and moving patterns
+    public NavMeshAgent navAgent = null;
+    public Transform target = null;
     /// <summary>
-    /// the AI that will control this ship. Is set by <seealso cref="CompetitionManager"/>.
+    /// the AI that will control this Tank. Is set by <seealso cref="BattleManager"/>.
     /// </summary>
     private BaseAI ai = null;
 
-    // create a level playing field. Every ship has the same basic abilities
+    // create a level playing field. Every Tank has the same basic abilities
     private float TankSpeed = 10.0f;
     private float SeaSize = 50.0f;
     private float RotationSpeed = 180.0f;
@@ -32,7 +36,8 @@ public class TankController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        navAgent.speed = TankSpeed;
+        navAgent.angularSpeed = RotationSpeed;
     }
 
     /// <summary>
@@ -64,10 +69,13 @@ public class TankController : MonoBehaviour
     /// </summary>
     /// <param name="other"></param>
     void OnTriggerStay(Collider other) {
-        if (other.tag == "tank") {
+        if (other.tag == "tank")
+        {
+            target = other.transform;
             ScannedRobotEvent scannedRobotEvent = new ScannedRobotEvent();
             scannedRobotEvent.Distance = Vector3.Distance(transform.position, other.transform.position);
             scannedRobotEvent.Name = other.name;
+            scannedRobotEvent.Transform = other.transform;
             ai.OnScannedRobot(scannedRobotEvent);
         }
     }
@@ -86,6 +94,12 @@ public class TankController : MonoBehaviour
 
             yield return new WaitForFixedUpdate();            
         }
+    }
+
+    public IEnumerator __MoveToTarget(Transform target)
+    {
+        navAgent.SetDestination(target.position);
+        yield return new WaitForFixedUpdate();
     }
 
     /// <summary>
@@ -171,12 +185,12 @@ public class TankController : MonoBehaviour
     //}
 
     /// <summary>
-    /// Change the color of the sails (for vanity or visualising state)
+    /// Change the color of the states (for vanity or visualising state)
     /// </summary>
     /// <param name="color"></param>
     public void __SetColor(Color color) {
-        foreach (GameObject sail in sails) {
-            sail.GetComponent<MeshRenderer>().material.color = color;
+        foreach (GameObject state in states) {
+            state.GetComponent<MeshRenderer>().material.color = color;
         }
     }
 
@@ -185,6 +199,11 @@ public class TankController : MonoBehaviour
     /// </summary>
     /// <param name="angle">The angle to rotate</param>
     /// <returns></returns>
+    public IEnumerator __TurretLookAt(Transform target)
+    {
+        Turret.transform.LookAt(target);
+        yield return new WaitForFixedUpdate();
+    }
     public IEnumerator __TurnTurretLeft(float angle) {
         int numFrames = (int)(angle / (RotationSpeed * Time.fixedDeltaTime));
         for (int f = 0; f < numFrames; f++) {
