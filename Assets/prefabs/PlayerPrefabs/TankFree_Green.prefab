@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 0
-  spawnPoint: {fileID: 743109208778737721, guid: cd56d92d0bce74c44b4b20ea58f82eb2,
+  spawnPoint: {fileID: 8840690611200600853, guid: cd56d92d0bce74c44b4b20ea58f82eb2,
     type: 3}
   BulletPrefab: {fileID: 5969628609626260578, guid: 358cb4aac593f564cabdfaa2af538e11,
     type: 3}
