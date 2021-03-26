@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random=UnityEngine.Random;
 
 public class DanAI : BaseAI {
 
@@ -9,18 +10,29 @@ public class DanAI : BaseAI {
     public List<float> targetDistance = new List<float>();
     public List<Transform> targetTransform = new List<Transform>();
 
+    public bool baseTargeted = false;
+    public int targetBaseID = 3;
+    public const int homeBaseID = 2;
+
     public override IEnumerator RunAI() {
 
         while (true) {
             
-            if (Tank.target) {
+            if (Tank.target && engageWorth()) {
+                Debug.Log("Attacking enemy");
                 yield return MoveToTarget(Tank.target);
                 yield return TurretLookAt(Tank.target);
                 yield return Fire();
+            } else if (baseTargeted) {
+                Debug.Log("Attacking base " + targetBaseID);
+                yield return MoveToTarget(Tank.defaultTargets[targetBaseID].transform);
+                yield return TurretLookAt(Tank.defaultTargets[targetBaseID].transform);
             } else {
-                yield return MoveToTarget(Tank.defaultTargets[3].transform);
-                yield return TurretLookAt(Tank.defaultTargets[3].transform);
-            } 
+                targetBase();
+                Debug.Log("Targeted base and attacking base " + targetBaseID);
+                yield return MoveToTarget(Tank.defaultTargets[targetBaseID].transform);
+                yield return TurretLookAt(Tank.defaultTargets[targetBaseID].transform);
+            }
         }
     }
 
@@ -29,11 +41,11 @@ public class DanAI : BaseAI {
     /// </summary>
     /// <returns></returns>
     private bool engageWorth() {
-        //if(gameObject.GetComponent<HealthBar>().currentHealth > gameObject.GetComponent<HealthBar>().maxHealth / 2) {
+        if(Tank.GetComponent<HealthBar>().currentHealth > Tank.GetComponent<HealthBar>().maxHealth / 2) {
             return true;
-        //} else {
-        //    return false;
-        //}
+        } else {
+            return false;
+        }
     }
 
     /// <summary>
@@ -48,6 +60,7 @@ public class DanAI : BaseAI {
     }
 
     public void initiateBattle(ScannedRobotEvent e) {
+        baseTargeted = false;
         if (!targetName.Contains(e.Name)) {
             targetName.Add(e.Name);
             targetDistance.Add(e.Distance);
@@ -55,5 +68,15 @@ public class DanAI : BaseAI {
             Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
             Tank.target = e.Transform;
         }
+    }
+
+    public void targetBase() {
+        int i = Random.Range(1, 4);
+        while (i == homeBaseID) {
+            i = Random.Range(1,4);
+        }
+        Debug.Log("Random int roll " + i);
+        targetBaseID = i;
+        baseTargeted = true;
     }
 }
