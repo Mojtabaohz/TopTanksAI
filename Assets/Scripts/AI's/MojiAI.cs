@@ -55,7 +55,7 @@ public class MojiAI : BaseAI
             targetName.Add(e.Name);
             targetDistance.Add(e.Distance);
             targetTransform.Add(e.Transform);
-            Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
+            //Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
             Tank.target = e.Transform;
         }
         
