@@ -6,7 +6,7 @@ public class plank : MonoBehaviour
 {
     // Start is called before the first frame update
     float speed = 200f;
-    int damage = 10;
+    //int damage = 10;
     void Start()
     {
         

@@ -25,6 +25,6 @@ public class YanAI : BaseAI
     /// </summary>
     public override void OnScannedRobot(ScannedRobotEvent e)
     {
-        Debug.Log("Ship detected: " + e.Name + " at distance: " + e.Distance);
+        //Debug.Log("Ship detected: " + e.Name + " at distance: " + e.Distance);
     }
 }

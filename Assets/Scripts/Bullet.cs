@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
         //if(collisionEnable & !explosive){
             if(other.gameObject.tag.Equals("tank")){
                 DoDamage(dmg,other);
-                Debug.Log("Damage Done");
+                //Debug.Log("Damage Done");
                 gameObject.SetActive(false);
                 
             } else if (other.gameObject.tag.Equals("rock")) {

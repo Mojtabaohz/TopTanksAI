@@ -41,7 +41,7 @@ public class DanAI : BaseAI {
     /// </summary>
     public override void OnScannedRobot(ScannedRobotEvent e)
     {
-        Debug.Log("Ship detected: " + e.Name + " at distance: " + e.Distance);
+        //Debug.Log("Ship detected: " + e.Name + " at distance: " + e.Distance);
         if (engageWorth()) {
             initiateBattle(e);
         }
@@ -52,7 +52,7 @@ public class DanAI : BaseAI {
             targetName.Add(e.Name);
             targetDistance.Add(e.Distance);
             targetTransform.Add(e.Transform);
-            Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
+            //Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
             Tank.target = e.Transform;
         }
     }
