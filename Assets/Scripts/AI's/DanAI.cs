@@ -23,8 +23,8 @@ public class DanAI : BaseAI {
                 yield return MoveToTarget(Tank.target);
                 yield return TurretLookAt(Tank.target);
                 yield return Fire();
-            } else if (baseTargeted) {
-                //Debug.Log("Attacking base " + targetBaseID);
+            } else if (baseTargeted/* && Tank.defaultTargets[targetBaseID].Distance < 30*/) {
+                Debug.Log("Attacking base " + targetBaseID);
                 yield return MoveToTarget(Tank.defaultTargets[targetBaseID].transform);
                 yield return TurretLookAt(Tank.defaultTargets[targetBaseID].transform);
             } else {
@@ -37,9 +37,9 @@ public class DanAI : BaseAI {
     }
 
     /// <summary>
-    /// Method <c>Calculates</c> calculates if it is worth engaging an enemy, based on health values of both parties
+    /// Method <c>engageWorth</c> calculates if it is worth engaging an enemy, based on its health values
     /// </summary>
-    /// <returns></returns>
+    /// <returns>A boolean, representing whether or not it is worth engaging</returns>
     private bool engageWorth() {
         if(Tank.GetComponent<HealthBar>().currentHealth > Tank.GetComponent<HealthBar>().maxHealth / 2) {
             return true;
@@ -59,6 +59,9 @@ public class DanAI : BaseAI {
         }
     }
 
+    /// <summary>
+    /// Method <c>initiateBattle</c> changes the tank's targeting information to the position of an enemy tank, initializing a battle
+    /// </summary>
     public void initiateBattle(ScannedRobotEvent e) {
         baseTargeted = false;
         if (!targetName.Contains(e.Name)) {
@@ -70,10 +73,13 @@ public class DanAI : BaseAI {
         }
     }
 
+    /// <summary>
+    /// Method <c>targetBase</c> selects an enemy base to change its focus to, causing the tank to navigate toward it
+    /// </summary>
     public void targetBase() {
-        int i = Random.Range(1, 4);
+        int i = Random.Range(0, 4);
         while (i == homeBaseID) {
-            i = Random.Range(1,4);
+            i = Random.Range(0,4);
         }
         //Debug.Log("Random int roll " + i);
         targetBaseID = i;
