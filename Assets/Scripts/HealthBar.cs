@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,8 +27,11 @@ public class HealthBar : MonoBehaviour
             DestroySound.Play();
             currentHealth = 0;
             alive = false;
+            gameObject.GetComponent<TankController>().Respawn();
             gameObject.SetActive(false);
-            
+            gameObject.GetComponent<TankController>().alive = false;
+            Debug.Log("unit died");
+
         }
         
     }

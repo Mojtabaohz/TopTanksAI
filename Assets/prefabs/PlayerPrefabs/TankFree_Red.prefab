@@ -248,6 +248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64e1230b6dcca704f8f8ac23b8a7a0db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alive: 0
+  spawnPoint: {fileID: 7067772788178017907, guid: 23c4b5d661141c94394259104341685d,
+    type: 3}
   BulletPrefab: {fileID: 5969628609626260578, guid: 358cb4aac593f564cabdfaa2af538e11,
     type: 3}
   Emmitter: {fileID: 3093165131920501641}

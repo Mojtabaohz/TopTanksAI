@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Random = System.Random;
 
 /// <summary>
 /// The vehicle that will do battle. This is the same for every participant in the arena.
@@ -11,8 +12,9 @@ using UnityEngine.UI;
 public class TankController : MonoBehaviour
 {
     private bool loaded = false;
-
-    private const float reloadTime = 5;
+    public bool alive;
+    private const float reloadTime = 2;
+    public Transform spawnPoint;
 
     protected float Timer;
     // the bullets and the locations on the prefab where they spawn from
@@ -43,6 +45,7 @@ public class TankController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
         gameObject.GetComponent<HealthBar>().maxHealth = 100;
         gameObject.GetComponent<HealthBar>().currentHealth = 100;
         navAgent.speed = TankSpeed;
@@ -55,6 +58,7 @@ public class TankController : MonoBehaviour
     public void Update()
     {
         ReloadBullet();
+        
     }
 
     /// <summary>
@@ -65,8 +69,10 @@ public class TankController : MonoBehaviour
         ai = _ai;
         ai.Tank = this;
     }
-
-    public void ReloadBullet()
+    /// <summary>
+    /// reload the bullet after firing
+    /// </summary>
+    private void ReloadBullet()
     {
         if (!loaded)
         {
@@ -78,12 +84,23 @@ public class TankController : MonoBehaviour
             }
         }
     }
+
+    public void Respawn()
+    {
+        
+            Debug.Log("tank respawned");
+            Instantiate(gameObject, gameObject.GetComponent<TankController>().spawnPoint.position,
+                gameObject.GetComponent<TankController>().spawnPoint.rotation);
+            alive = true;
+        
+        
+    }
     /// <summary>
     /// Tell this ship to start battling
     /// Should be called only once
     /// </summary>
     public void StartBattle() {
-        Debug.Log("Battle starts");
+        //Debug.Log("Battle starts");
         StartCoroutine(ai.RunAI());
     }
 

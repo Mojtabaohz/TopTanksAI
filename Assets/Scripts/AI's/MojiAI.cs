@@ -58,6 +58,7 @@ public class MojiAI : BaseAI
             Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
             Tank.target = e.Transform;
         }
+        
 
     }
 }

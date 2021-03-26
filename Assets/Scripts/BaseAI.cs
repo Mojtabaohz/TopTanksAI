@@ -14,16 +14,12 @@ public class ScannedRobotEvent {
     
 }
 
-public class chosenTarget
-{
-    public string Name;
-    public float Distance;
-    public Transform Transform;
-}
+
 
 public class BaseAI
 {
     public TankController Tank = null;
+    
 
     /// <summary>
     /// Another participant was 'seen'. Do something with the info stored in the even data
