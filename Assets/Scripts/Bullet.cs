@@ -33,6 +33,7 @@ public class Bullet : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(new Vector3(0f, 0f, bulletSpeed * Time.fixedDeltaTime), Space.Self);
+        Destroy(gameObject,1f);
     }
     void OnTriggerEnter(Collider other){
         

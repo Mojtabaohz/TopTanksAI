@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ public class TankController : MonoBehaviour
     // navmesh agent to access functions for finding new target and moving patterns
     public NavMeshAgent navAgent = null;
     public Transform target = null;
+    public GameObject[] defaultTargets = null;
     /// <summary>
     /// the AI that will control this Tank. Is set by <seealso cref="BattleManager"/>.
     /// </summary>
@@ -38,6 +40,8 @@ public class TankController : MonoBehaviour
     {
         navAgent.speed = TankSpeed;
         navAgent.angularSpeed = RotationSpeed;
+        navAgent.stoppingDistance = 30;
+        defaultTargets = GameObject.FindGameObjectsWithTag("Base");
     }
 
     /// <summary>
@@ -71,7 +75,10 @@ public class TankController : MonoBehaviour
     void OnTriggerStay(Collider other) {
         if (other.tag == "tank")
         {
-            target = other.transform;
+            if (!target)
+            {
+                target = other.transform;  
+            }
             ScannedRobotEvent scannedRobotEvent = new ScannedRobotEvent();
             scannedRobotEvent.Distance = Vector3.Distance(transform.position, other.transform.position);
             scannedRobotEvent.Name = other.name;
@@ -201,7 +208,8 @@ public class TankController : MonoBehaviour
     /// <returns></returns>
     public IEnumerator __TurretLookAt(Transform target)
     {
-        Turret.transform.LookAt(target);
+        Turret.transform.rotation = Quaternion.LookRotation(target.position);
+        //Turret.transform.LookAt(target);
         yield return new WaitForFixedUpdate();
     }
     public IEnumerator __TurnTurretLeft(float angle) {

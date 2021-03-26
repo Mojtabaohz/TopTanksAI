@@ -5,27 +5,32 @@ using UnityEngine;
 public class MojiAI : BaseAI
 {
     // Start is called before the first frame update
+    
     public override IEnumerator RunAI() {
         for (int i = 0; i < 10; i++)
         {
             if (Tank.target)
             {
                 yield return MoveToTarget(Tank.target);
+                yield return TurretLookAt(Tank.target);
             }
             else
             {
-                yield return Ahead(10);
-                yield return Fire(1);
-                yield return TurnTurretLeft(90);
-                yield return TurnLeft(360);
-                yield return Fire(1);
-                yield return TurnTurretRight(180);
-                yield return Back(10);
-                yield return Fire(1);
-                yield return TurnTurretLeft(90);
-                yield return TurnRight(90);
+                yield return MoveToTarget(Tank.defaultTargets[1].transform);
+                yield return TurretLookAt(Tank.defaultTargets[1].transform);
             }
             
+            //yield return Fire(1);
+            //yield return TurnTurretLeft(90);
+            //yield return TurnLeft(90);
+            //yield return Fire(1);
+            //yield return TurnTurretRight(180);
+            //yield return Back(10);
+            //yield return Fire(1);
+            //yield return TurnTurretLeft(90);
+            //yield return TurnRight(90);
+
+
         }
     }
 
