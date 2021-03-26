@@ -29,8 +29,9 @@ public class HealthBar : MonoBehaviour
             alive = false;
             gameObject.GetComponent<TankController>().Respawn();
             gameObject.SetActive(false);
-            gameObject.GetComponent<TankController>().alive = false;
-            Debug.Log("unit died");
+            Destroy(gameObject);
+            //gameObject.GetComponent<TankController>().active = false;
+            //Debug.Log("unit died");
 
         }
         

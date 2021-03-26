@@ -12,9 +12,11 @@ using Random = System.Random;
 public class TankController : MonoBehaviour
 {
     private bool loaded = false;
-    public bool alive;
+    //public bool active = false;
     private const float reloadTime = 2;
     public Transform spawnPoint;
+    
+
 
     protected float Timer;
     // the bullets and the locations on the prefab where they spawn from
@@ -45,7 +47,8 @@ public class TankController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        alive = true;
+        
+        //active = true;
         gameObject.GetComponent<HealthBar>().maxHealth = 100;
         gameObject.GetComponent<HealthBar>().currentHealth = 100;
         navAgent.speed = TankSpeed;
@@ -53,6 +56,7 @@ public class TankController : MonoBehaviour
         navAgent.stoppingDistance = 30;
         defaultTargets = GameObject.FindGameObjectsWithTag("Base");
         ReloadBullet();
+        StartBattle();
     }
 
     public void Update()
@@ -88,12 +92,12 @@ public class TankController : MonoBehaviour
     public void Respawn()
     {
         
-            Debug.Log("tank respawned");
-            Instantiate(gameObject, gameObject.GetComponent<TankController>().spawnPoint.position,
+            //Debug.Log("tank respawned");
+            GameObject tank = Instantiate(gameObject, gameObject.GetComponent<TankController>().spawnPoint.position,
                 gameObject.GetComponent<TankController>().spawnPoint.rotation);
-            alive = true;
-        
-        
+            TankController TankController = tank.GetComponent<TankController>();
+            TankController.SetAI(new MojiAI());
+            
     }
     /// <summary>
     /// Tell this ship to start battling
@@ -148,6 +152,7 @@ public class TankController : MonoBehaviour
     public IEnumerator __MoveToTarget(Transform target)
     {
         navAgent.SetDestination(target.position);
+        
         yield return new WaitForFixedUpdate();
     }
 

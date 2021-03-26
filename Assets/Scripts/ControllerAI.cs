@@ -18,8 +18,8 @@ public class ControllerAI : MonoBehaviour
     private float m_DistanceToTarget; //I am using this variable to see in realtime what the distance is between the characters when the scene is played. This is so that I can tweak my stopping distance and weapon throw distance in the future functions
 
     [Space(10)]
-    [SerializeField]
-    private float m_Health = 20f;
+    //[SerializeField]
+    //private float m_Health = 20f;
     [SerializeField]
     private float m_RetreatHealth = 5f;
     //[SerializeField]

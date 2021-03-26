@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using Random=UnityEngine.Random;
+
 
 public class MojiAI : BaseAI
 {
-    // Start is called before the first frame update
-    
+
+
+    public Transform mainTarget;
     public List<String> targetName = new List<String>();
     public List<float> targetDistance = new List<float>();
     public List<Transform> targetTransform = new List<Transform>();
@@ -14,9 +18,9 @@ public class MojiAI : BaseAI
     public override IEnumerator RunAI() {
         while (true)
         {
-            
             if (Tank.target)
             {
+                //Debug.Log(Tank.GetComponent<HealthBar>().currentHealth);
                 yield return MoveToTarget(Tank.target);
                 yield return TurretLookAt(Tank.target);
                 yield return Fire();
@@ -24,25 +28,17 @@ public class MojiAI : BaseAI
             }
             else
             {
+                if (Tank.navAgent.speed <= 1)
+                {
+                    Debug.Log(Tank.navAgent.isStopped);
+                    LookForNewTarget();
+                    yield return MoveToTarget(Tank.defaultTargets[1].transform);
+                }
                 yield return MoveToTarget(Tank.defaultTargets[1].transform);
                 yield return TurretLookAt(Tank.defaultTargets[1].transform);
             } 
         }
-        
-            
-            
-            //yield return Fire(1);
-            //yield return TurnTurretLeft(90);
-            //yield return TurnLeft(90);
-            //yield return Fire(1);
-            //yield return TurnTurretRight(180);
-            //yield return Back(10);
-            //yield return Fire(1);
-            //yield return TurnTurretLeft(90);
-            //yield return TurnRight(90);
 
-
-        
     }
 
     /// <summary>
@@ -58,7 +54,23 @@ public class MojiAI : BaseAI
             //Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
             Tank.target = e.Transform;
         }
-        
+    }
 
+    private void LookForNewTarget()
+    {
+        if (Tank.target)
+        {
+            mainTarget = Tank.target;
+        }
+        else
+        {
+            WonderAround();
+        }
+    }
+
+    private IEnumerator WonderAround()
+    {
+        int rnd = Random.Range(0, 3);
+        yield return MoveToTarget(Tank.defaultTargets[rnd].transform);
     }
 }

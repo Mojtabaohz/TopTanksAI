@@ -7,17 +7,16 @@ using UnityEngine;
 /// </summary>
 public class BattleManager : MonoBehaviour
 {
-    private bool battle = false;
+    //private bool battle = false;
     // the prefab for the participants in the battle
     public GameObject[] PlayerPrefab = null;
     
 
     // The positions where the participants will be instantiated
     // set in the inspector by dragging 4 gameobjects in the slots of the array
-    public Transform[] SpawnPoints = null;
 
     // the list that keeps track of all the participants
-    private List<TankController> Tanks = new List<TankController>();
+    public List<TankController> Tanks = new List<TankController>();
 
     /// <summary>
     /// creates the 4 tanks that will do battle
@@ -25,7 +24,7 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void Start()
     {
-        BaseAI[] aiArray = new BaseAI[] {
+        BaseAI[] aiArray =  {
             new IljaAI(),
             new MojiAI(), 
             new YanAI(), 
@@ -48,16 +47,9 @@ public class BattleManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !battle)
-        {
-            battle = true;
-            foreach (var tank in Tanks) {
-                tank.StartBattle();
-            }
-        }
-        
         
     }
 
+    
     
 }
