@@ -28,14 +28,13 @@ public class DanAI : BaseAI {
     /// Method <c>Calculates</c> calculates if it is worth engaging an enemy, based on health values of both parties
     /// </summary>
     /// <returns></returns>
-    /*private bool engageWorth(int targetHealth) {
-        int worth = Tank.health - targetHealth;
-        if (worth > 0) {
+    private bool engageWorth() {
+        //if(gameObject.GetComponent<HealthBar>().currentHealth > gameObject.GetComponent<HealthBar>().maxHealth / 2) {
             return true;
-        } else {
-            return false;
-        }
-    }*/
+        //} else {
+        //    return false;
+        //}
+    }
 
     /// <summary>
     /// <inheritdoc/>
@@ -43,9 +42,12 @@ public class DanAI : BaseAI {
     public override void OnScannedRobot(ScannedRobotEvent e)
     {
         Debug.Log("Ship detected: " + e.Name + " at distance: " + e.Distance);
-        //if (engageWorth(e.health)) {
-            //initiateBattle(e);
-        //}
+        if (engageWorth()) {
+            initiateBattle(e);
+        }
+    }
+
+    public void initiateBattle(ScannedRobotEvent e) {
         if (!targetName.Contains(e.Name)) {
             targetName.Add(e.Name);
             targetDistance.Add(e.Distance);
@@ -53,9 +55,5 @@ public class DanAI : BaseAI {
             Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
             Tank.target = e.Transform;
         }
-    }
-
-    public void initiateBattle(ScannedRobotEvent e) {
-        
     }
 }
