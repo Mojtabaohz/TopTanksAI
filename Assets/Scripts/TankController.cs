@@ -10,6 +10,11 @@ using UnityEngine.UI;
 /// </summary>
 public class TankController : MonoBehaviour
 {
+    private bool loaded = false;
+
+    private const float reloadTime = 5;
+
+    protected float Timer;
     // the bullets and the locations on the prefab where they spawn from
     public GameObject BulletPrefab = null;
     public Transform Emmitter = null;
@@ -44,6 +49,12 @@ public class TankController : MonoBehaviour
         navAgent.angularSpeed = RotationSpeed;
         navAgent.stoppingDistance = 30;
         defaultTargets = GameObject.FindGameObjectsWithTag("Base");
+        ReloadBullet();
+    }
+
+    public void Update()
+    {
+        ReloadBullet();
     }
 
     /// <summary>
@@ -55,6 +66,18 @@ public class TankController : MonoBehaviour
         ai.Tank = this;
     }
 
+    public void ReloadBullet()
+    {
+        if (!loaded)
+        {
+            Timer += Time.deltaTime;
+            if (Timer >= reloadTime)
+            {
+                Timer = 0;
+                loaded = true;
+            }
+        }
+    }
     /// <summary>
     /// Tell this ship to start battling
     /// Should be called only once
@@ -77,13 +100,11 @@ public class TankController : MonoBehaviour
     void OnTriggerStay(Collider other) {
         if (other.tag == "tank")
         {
-
             ScannedRobotEvent scannedRobotEvent = new ScannedRobotEvent();
             scannedRobotEvent.Distance = Vector3.Distance(transform.position, other.transform.position);
             scannedRobotEvent.Name = other.name;
             scannedRobotEvent.Transform = other.transform;
             ai.OnScannedRobot(scannedRobotEvent);
-            
         }
     }
 
@@ -171,7 +192,12 @@ public class TankController : MonoBehaviour
     /// <param name="power">???</param>
     /// <returns></returns>
     public IEnumerator __Fire() {
-       GameObject newInstance = Instantiate(BulletPrefab, Emmitter.position, Emmitter.rotation);
+        if (loaded)
+        {
+            GameObject newInstance = Instantiate(BulletPrefab, Emmitter.position, Emmitter.rotation);
+            this.loaded = false;
+        }
+       
         yield return new WaitForFixedUpdate();
     }
 
