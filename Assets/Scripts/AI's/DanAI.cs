@@ -18,8 +18,8 @@ public class DanAI : BaseAI {
                 yield return TurretLookAt(Tank.target);
                 yield return Fire();
             } else {
-                yield return MoveToTarget(Tank.defaultTargets[1].transform);
-                yield return TurretLookAt(Tank.defaultTargets[1].transform);
+                yield return MoveToTarget(Tank.defaultTargets[3].transform);
+                yield return TurretLookAt(Tank.defaultTargets[3].transform);
             } 
         }
     }

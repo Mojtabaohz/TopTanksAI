@@ -10411,6 +10411,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1526030637516327307, guid: bea34c3b7fb6154429fad024b929ed06,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526030637516327307, guid: bea34c3b7fb6154429fad024b929ed06,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -10497,6 +10502,16 @@ PrefabInstance:
     - target: {fileID: 5797186835770014948, guid: bea34c3b7fb6154429fad024b929ed06,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635347884664754909, guid: bea34c3b7fb6154429fad024b929ed06,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635347884664754909, guid: bea34c3b7fb6154429fad024b929ed06,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

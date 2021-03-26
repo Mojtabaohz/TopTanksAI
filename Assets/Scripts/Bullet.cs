@@ -43,6 +43,8 @@ public class Bullet : MonoBehaviour
                 Debug.Log("Damage Done");
                 gameObject.SetActive(false);
                 
+            //} else {
+                //Destroy(gameObject, 0);
             }
         //}
         //DoDamage(damage,other);
