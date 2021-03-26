@@ -22,21 +22,6 @@ public class DanAI : BaseAI {
                 yield return TurretLookAt(Tank.defaultTargets[1].transform);
             } 
         }
-
-        /*Placeholder behaviour
-        for (int i = 0; i < 10; i++)
-        {
-            yield return Ahead(200);
-            //yield return Fire(1);
-            yield return TurnTurretLeft(90);
-            yield return TurnLeft(360);
-            //yield return Fire(1);
-            yield return TurnTurretRight(180);
-            yield return Back(200);
-            //yield return Fire(1);
-            yield return TurnTurretLeft(90);
-            yield return TurnRight(90);
-        };*/
     }
 
     /// <summary>
