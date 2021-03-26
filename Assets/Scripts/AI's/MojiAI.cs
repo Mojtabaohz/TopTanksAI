@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using Random=UnityEngine.Random;
 
 
 public class MojiAI : BaseAI
@@ -27,8 +28,9 @@ public class MojiAI : BaseAI
             }
             else
             {
-                if (Tank.navAgent.isStopped)
+                if (Tank.navAgent.speed <= 1)
                 {
+                    Debug.Log(Tank.navAgent.isStopped);
                     LookForNewTarget();
                     yield return MoveToTarget(Tank.defaultTargets[1].transform);
                 }
@@ -68,7 +70,7 @@ public class MojiAI : BaseAI
 
     private IEnumerator WonderAround()
     {
-        int rnd = Random.Range(2, 4);
-        yield return MoveToTarget(Tank.defaultTargets[1].transform)
+        int rnd = Random.Range(0, 3);
+        yield return MoveToTarget(Tank.defaultTargets[rnd].transform);
     }
 }

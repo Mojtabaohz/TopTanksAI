@@ -19,17 +19,17 @@ public class DanAI : BaseAI {
         while (true) {
             
             if (Tank.target && engageWorth()) {
-                Debug.Log("Attacking enemy");
+                //Debug.Log("Attacking enemy");
                 yield return MoveToTarget(Tank.target);
                 yield return TurretLookAt(Tank.target);
                 yield return Fire();
             } else if (baseTargeted) {
-                Debug.Log("Attacking base " + targetBaseID);
+                //Debug.Log("Attacking base " + targetBaseID);
                 yield return MoveToTarget(Tank.defaultTargets[targetBaseID].transform);
                 yield return TurretLookAt(Tank.defaultTargets[targetBaseID].transform);
             } else {
                 targetBase();
-                Debug.Log("Targeted base and attacking base " + targetBaseID);
+                //Debug.Log("Targeted base and attacking base " + targetBaseID);
                 yield return MoveToTarget(Tank.defaultTargets[targetBaseID].transform);
                 yield return TurretLookAt(Tank.defaultTargets[targetBaseID].transform);
             }
@@ -75,7 +75,7 @@ public class DanAI : BaseAI {
         while (i == homeBaseID) {
             i = Random.Range(1,4);
         }
-        Debug.Log("Random int roll " + i);
+        //Debug.Log("Random int roll " + i);
         targetBaseID = i;
         baseTargeted = true;
     }

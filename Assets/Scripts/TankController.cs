@@ -152,6 +152,7 @@ public class TankController : MonoBehaviour
     public IEnumerator __MoveToTarget(Transform target)
     {
         navAgent.SetDestination(target.position);
+        
         yield return new WaitForFixedUpdate();
     }
 
