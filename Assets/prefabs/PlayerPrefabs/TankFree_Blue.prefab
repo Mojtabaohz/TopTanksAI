@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 5601040274317486243}
   - component: {fileID: 1147729269}
   - component: {fileID: -4254670618545548975}
+  - component: {fileID: 7945263229741643569}
   m_Layer: 0
   m_Name: TankFree_Blue
   m_TagString: tank
@@ -497,8 +498,54 @@ MonoBehaviour:
   states: []
   navAgent: {fileID: 1147729269}
   target: {fileID: 0}
-  defaultTarget: {fileID: 2807391962166736866, guid: be0929c49de71e1409d520a2b8b3c2c4,
-    type: 3}
+  defaultTargets: []
+--- !u!114 &7945263229741643569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136332484790545189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39512d4b7fcf2ff479189e07fe73bcae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  alive: 1
+  slider: {fileID: 5416434115837187175}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.9150943, g: 0.14244394, b: 0.14244394, a: 1}
+    key1: {r: 0.9528302, g: 0.58111167, b: 0.022472408, a: 1}
+    key2: {r: 0.0509078, g: 0.9811321, b: 0.05368208, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 19661
+    ctime1: 42598
+    ctime2: 65535
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
+  fill: {fileID: 3713166957664841312}
+  DestroySound: {fileID: 8957388618929827999}
 --- !u!1 &3352697159064406677
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +747,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5472166115644281595}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecd91fdf029026847986accfb301b631, type: 3}
   m_Name: 
@@ -902,6 +949,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3662226576216038548}
     m_Modifications:
+    - target: {fileID: 3034725736964272522, guid: cf9dab070e9d0dd458d210ce8b56f98e,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3082576287934314262, guid: cf9dab070e9d0dd458d210ce8b56f98e,
         type: 3}
       propertyPath: m_Name
@@ -1027,6 +1079,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5205287248681430080, guid: cf9dab070e9d0dd458d210ce8b56f98e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.060001373
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958642151349898125, guid: cf9dab070e9d0dd458d210ce8b56f98e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.06348285
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958642151349898125, guid: cf9dab070e9d0dd458d210ce8b56f98e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958642151349898125, guid: cf9dab070e9d0dd458d210ce8b56f98e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.042452812
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf9dab070e9d0dd458d210ce8b56f98e, type: 3}
 --- !u!1 &5472166115644281595 stripped
@@ -1041,3 +1113,27 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7004936748253177325}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5416434115837187175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3034725736964272522, guid: cf9dab070e9d0dd458d210ce8b56f98e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7004936748253177325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3713166957664841312 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5958642151349898125, guid: cf9dab070e9d0dd458d210ce8b56f98e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7004936748253177325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

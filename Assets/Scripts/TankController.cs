@@ -38,6 +38,8 @@ public class TankController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.GetComponent<HealthBar>().maxHealth = 100;
+        gameObject.GetComponent<HealthBar>().currentHealth = 100;
         navAgent.speed = TankSpeed;
         navAgent.angularSpeed = RotationSpeed;
         navAgent.stoppingDistance = 30;
@@ -75,15 +77,13 @@ public class TankController : MonoBehaviour
     void OnTriggerStay(Collider other) {
         if (other.tag == "tank")
         {
-            if (!target)
-            {
-                target = other.transform;  
-            }
+
             ScannedRobotEvent scannedRobotEvent = new ScannedRobotEvent();
             scannedRobotEvent.Distance = Vector3.Distance(transform.position, other.transform.position);
             scannedRobotEvent.Name = other.name;
             scannedRobotEvent.Transform = other.transform;
             ai.OnScannedRobot(scannedRobotEvent);
+            
         }
     }
 
@@ -103,6 +103,10 @@ public class TankController : MonoBehaviour
         }
     }
 
+    public void updateTargetInfo()
+    {
+        
+    }
     public IEnumerator __MoveToTarget(Transform target)
     {
         navAgent.SetDestination(target.position);
@@ -166,7 +170,7 @@ public class TankController : MonoBehaviour
     /// </summary>
     /// <param name="power">???</param>
     /// <returns></returns>
-    public IEnumerator __Fire(float power) {
+    public IEnumerator __Fire() {
        GameObject newInstance = Instantiate(BulletPrefab, Emmitter.position, Emmitter.rotation);
         yield return new WaitForFixedUpdate();
     }
@@ -208,8 +212,8 @@ public class TankController : MonoBehaviour
     /// <returns></returns>
     public IEnumerator __TurretLookAt(Transform target)
     {
-        Turret.transform.rotation = Quaternion.LookRotation(target.position);
-        //Turret.transform.LookAt(target);
+        //Turret.transform.rotation = Quaternion.LookRotation(target.position);
+        Turret.transform.LookAt(target);
         yield return new WaitForFixedUpdate();
     }
     public IEnumerator __TurnTurretLeft(float angle) {

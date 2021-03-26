@@ -36,15 +36,15 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject,1f);
     }
     void OnTriggerEnter(Collider other){
-        
-        if(collisionEnable & !explosive){
-            if(other.gameObject.tag.Equals("Player")){
+        //Debug.Log("Damage Done");
+        //if(collisionEnable & !explosive){
+            if(other.gameObject.tag.Equals("tank")){
                 DoDamage(dmg,other);
-                //Debug.Log("Damage Done");
+                Debug.Log("Damage Done");
                 gameObject.SetActive(false);
                 
             }
-        }
+        //}
         //DoDamage(damage,other);
         
     }

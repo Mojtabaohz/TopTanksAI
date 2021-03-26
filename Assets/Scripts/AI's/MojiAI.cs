@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,19 +7,29 @@ public class MojiAI : BaseAI
 {
     // Start is called before the first frame update
     
+    public List<String> targetName = new List<String>();
+    public List<float> targetDistance = new List<float>();
+    public List<Transform> targetTransform = new List<Transform>();
+    
     public override IEnumerator RunAI() {
-        for (int i = 0; i < 10; i++)
+        while (true)
         {
+            
             if (Tank.target)
             {
                 yield return MoveToTarget(Tank.target);
                 yield return TurretLookAt(Tank.target);
+                yield return Fire();
+
             }
             else
             {
                 yield return MoveToTarget(Tank.defaultTargets[1].transform);
                 yield return TurretLookAt(Tank.defaultTargets[1].transform);
-            }
+            } 
+        }
+        
+            
             
             //yield return Fire(1);
             //yield return TurnTurretLeft(90);
@@ -31,7 +42,7 @@ public class MojiAI : BaseAI
             //yield return TurnRight(90);
 
 
-        }
+        
     }
 
     /// <summary>
@@ -39,7 +50,14 @@ public class MojiAI : BaseAI
     /// </summary>
     public override void OnScannedRobot(ScannedRobotEvent e)
     {
-        Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
-        
+        if (!targetName.Contains(e.Name))
+        {
+            targetName.Add(e.Name);
+            targetDistance.Add(e.Distance);
+            targetTransform.Add(e.Transform);
+            Debug.Log("Tank detected: " + e.Name + " at distance: " + e.Distance + " target " + e.Transform);
+            Tank.target = e.Transform;
+        }
+
     }
 }

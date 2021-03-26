@@ -1304,6 +1304,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraTarget
       objectReference: {fileID: 0}
+    - target: {fileID: 7040636647552064583, guid: 34e2c255065996e45b25635c60cfe27f,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34e2c255065996e45b25635c60cfe27f, type: 3}
 --- !u!1001 &159040338
@@ -10127,16 +10132,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 106641581}
     m_Modifications:
+    - target: {fileID: 68458897418636670, guid: be0929c49de71e1409d520a2b8b3c2c4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2807391962166736866, guid: be0929c49de71e1409d520a2b8b3c2c4,
         type: 3}
       propertyPath: m_Name
       value: BunkerRed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807391962166736866, guid: be0929c49de71e1409d520a2b8b3c2c4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3041255537423948476, guid: be0929c49de71e1409d520a2b8b3c2c4,
         type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 1610907594}
+    - target: {fileID: 3103031720442116009, guid: be0929c49de71e1409d520a2b8b3c2c4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3296085931908164952, guid: be0929c49de71e1409d520a2b8b3c2c4,
         type: 3}
       propertyPath: m_RootOrder
@@ -10190,6 +10210,16 @@ PrefabInstance:
     - target: {fileID: 3296085931908164952, guid: be0929c49de71e1409d520a2b8b3c2c4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3641457495760115234, guid: be0929c49de71e1409d520a2b8b3c2c4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020675142166525969, guid: be0929c49de71e1409d520a2b8b3c2c4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10379,10 +10409,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 106641581}
     m_Modifications:
+    - target: {fileID: 1526030637516327307, guid: bea34c3b7fb6154429fad024b929ed06,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2834934095378338519, guid: bea34c3b7fb6154429fad024b929ed06,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3687154911266501399, guid: bea34c3b7fb6154429fad024b929ed06,
         type: 3}
       propertyPath: m_Name
       value: BunkerBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3687154911266501399, guid: bea34c3b7fb6154429fad024b929ed06,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4062448588424227245, guid: bea34c3b7fb6154429fad024b929ed06,
         type: 3}
@@ -10439,11 +10484,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4525718700495795036, guid: bea34c3b7fb6154429fad024b929ed06,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4605509009288748617, guid: bea34c3b7fb6154429fad024b929ed06,
         type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 1610907594}
+    - target: {fileID: 5797186835770014948, guid: bea34c3b7fb6154429fad024b929ed06,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea34c3b7fb6154429fad024b929ed06, type: 3}
 --- !u!1001 &4860599735756688973

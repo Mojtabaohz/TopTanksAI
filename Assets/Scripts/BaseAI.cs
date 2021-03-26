@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,14 @@ using UnityEngine;
 /// The event data that is generated when another participant in the arena was 'seen'
 /// </summary>
 public class ScannedRobotEvent {
+    public string Name;
+    public float Distance;
+    public Transform Transform;
+    
+}
+
+public class chosenTarget
+{
     public string Name;
     public float Distance;
     public Transform Transform;
@@ -24,6 +33,8 @@ public class BaseAI
     {
         //Debug.Log("new tank scanned");
     }
+
+   
 
     /// <summary>
     /// Move this Tank ahead by the given distance
@@ -92,8 +103,8 @@ public class BaseAI
     /// </summary>
     /// <param name="power">???</param>
     /// <returns></returns>
-    public IEnumerator Fire(float power) {
-        yield return Tank.__Fire(power);
+    public IEnumerator Fire() {
+        yield return Tank.__Fire();
     }
 
     /// <summary>
